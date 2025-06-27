@@ -25,7 +25,6 @@ export default function TaskRow({
   editInputRef,
   onToggle,
   onDelete,
-  onEdit,
   onEditInputKeyDown,
   onEditInputChange,
   onSaveEdit,
@@ -36,7 +35,7 @@ export default function TaskRow({
       style={{
         display: 'flex',
         alignItems: 'center',
-        width: '100%',
+        width: '500',
         minWidth: 0,
         background: 'var(--framer-color-bg-tertiary)',
         padding: '10px 14px',
@@ -63,8 +62,7 @@ export default function TaskRow({
           style={{
             width: 22,
             height: 22,
-            borderRadius: 'var(--framer-radius, 6px)',
-            border: '2px solid var(--framer-color-divider)',
+            borderRadius: 6,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -87,8 +85,6 @@ export default function TaskRow({
           style={{
             flex: 1,
             fontSize: 16,
-            padding: "8px 10px",
-            borderRadius: 'var(--framer-radius, 8px)',
             outline: "none",
             background: 'var(--framer-color-bg-tertiary)',
             color: 'var(--framer-color-text)',
@@ -102,16 +98,20 @@ export default function TaskRow({
           onKeyDown={e => onEditInputKeyDown(e, idx)}
         />
       ) : (
-        <span>{task.text}</span>
+        <span 
+          style={{ 
+            padding: 4,
+          }}>
+            {task.text}
+        </span>
       )}
       <button
         style={{
           background: "none",
-          border: "none",
           fontSize: 18,
+          width: 40,
+          height: 40,
           cursor: "pointer",
-          marginLeft: 4,
-          padding: 0,
           lineHeight: 1,
           display: "flex",
           alignItems: "center",

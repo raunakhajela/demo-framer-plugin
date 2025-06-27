@@ -4,23 +4,12 @@ import ToDoListInput from "./components/ToDoListInput";
 import TaskList from "./components/TaskList";
 
 const initialTasks = [
-  { text: "First Task", completed: false },
-  { text: "Second Task", completed: false },
-  { text: "Third Task", completed: false },
-  { text: "Fourth Task", completed: false },
-  { text: "Fifth Task", completed: false },
+  { text: "Finalize pitch deck for investor meeting", completed: false },
+  { text: "Review product roadmap with the team", completed: false },
+  { text: "Prepare for the upcoming sales meeting", completed: false },
+  { text: "Update the marketing website with new features", completed: false },
+  { text: "Review and approve the latest marketing campaign", completed: false },
 ];
-
-function getTheme() {
-  if (typeof window !== "undefined") {
-    const attr = document.body.getAttribute("data-framer-theme");
-    if (attr) return attr;
-    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark";
-    }
-  }
-  return "light";
-}
 
 export default function ToDoList() {
   const [tasks, setTasks] = useState(initialTasks);
@@ -30,7 +19,6 @@ export default function ToDoList() {
   const [editingText, setEditingText] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const editInputRef = useRef<HTMLInputElement>(null);
-  const theme = getTheme();
 
   // Debug: log tasks state
   console.log("Current tasks state:", tasks);
@@ -88,7 +76,7 @@ export default function ToDoList() {
     <div
       style={{
         background: 'var(--framer-color-bg)',
-        width: '100%',
+        width: 340,
         height: '100%',
         minHeight: 0,
         minWidth: 0,
@@ -100,16 +88,8 @@ export default function ToDoList() {
       <div
         style={{
           background: 'var(--framer-color-bg-secondary)',
-          border: '1px solid var(--framer-color-divider)',
-          borderRadius: 'var(--framer-radius, 16px)',
-          boxShadow: theme === "dark"
-            ? "0 2px 16px rgba(0,0,0,0.18)"
-            : "0 2px 16px rgba(0,0,0,0.08)",
           width: '100%',
           height: '100%',
-          minHeight: 0,
-          minWidth: 0,
-          padding: 0,
           display: "flex",
           flexDirection: "column",
         }}
